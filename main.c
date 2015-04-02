@@ -29,11 +29,11 @@ int main(void) {
 re_input:
 /////////////////////////////////////////////////////////
 	while (1) {
-		printf("몇개를 입력 받으시겠습니까?: ");
+		printf("How many inputs?: ");
 		scanf("%d", &n); getchar();
 
 		if (n <= 0)
-			printf("\n양의 정수를 입력해 주십시오!\n");
+			printf("\nPlease enter the positive number!\n");
 		else
 			break;
 	}
@@ -42,7 +42,7 @@ re_input:
 	p_copy = (int *)malloc(sizeof(int) * n);
 
 	for (i = 0; i < n; i++) {
-		printf("p[%d] 입력: ", i);
+		printf("p[%d] Input: ", i);
 		scanf("%d", &p[i]); getchar();
 	}
 
@@ -52,7 +52,7 @@ re_input:
 re_sort:
 /////////////////////////////////////////////////////////
 	while (1) {
-		printf("\n역정렬을 수행하시겠습니까? (y/n): ");
+		printf("\nTry reverse sorting? (y/n): ");
 		scanf("%s", &yesno); getchar();
 
 		if (yesno[0] == 'y' || yesno[0] == 'Y') {
@@ -62,26 +62,26 @@ re_sort:
 			reverse = 0;
 			break;
 		} else
-			printf("\n잘 못 입력하셨습니다!\n");
+			printf("\nWrong input!\n");
 	}
 
 	while (1) {
-		printf("\n어떤 정렬을 수행 하시겠습니까?\n");
-		printf("1. 선택 정렬 (Selection Sort)\n");
-		printf("2. 버블 정렬 (Bubble Sort)\n");
-		printf("3. 버블 정렬 수정판 (Bubble Sort Fix)\n");
-		printf("4. 삽입 정렬 (Insertion Sort)\n");
-		printf("\n입력: ");
+		printf("\nWhich sorting you want to proceed?\n");
+		printf("1. Selection Sort\n");
+		printf("2. Bubble Sort\n");
+		printf("3. Bubble Sort Fix\n");
+		printf("4. Insertion Sort\n");
+		printf("\nInput: ");
 		scanf("%d", &select); getchar();
 
 		if (select >= 1 && select <= 4)
 			break;
 		else
-			printf("\n잘 못 입력하셨습니다!\n");
+			printf("\nWrong input!\n");
 	}
 
 
-	printf("\n정렬하기 전의 배열은 다음과 같습니다.\n");
+	printf("\nThe original array looks like..\n");
 	for (i = 0; i < n; i++) {
 		printf("%d ", p[i]);
 	}
@@ -90,44 +90,44 @@ re_sort:
 	switch (select) {
 		case SELECTION:
 			if (reverse) {
-				printf("\n선택 역정렬을 수행합니다\n\n");
+				printf("\nProceed reverse selection sort.\n\n");
 				selection_reverse(p, n);
 			} else {
-				printf("\n선택 정렬을 수행합니다\n\n");
+				printf("\nProceed selection sort.\n\n");
 				selection(p, n);
 			}
 			break;
 		case BUBBLE:
 			if (reverse) {
-				printf("\n버블 역정렬을 수행합니다\n\n");
+				printf("\nProceed reverse bubble sort.\n\n");
 				bubble_reverse(p, n);
 			} else {
-				printf("\n버블 정렬을 수행합니다\n\n");
+				printf("\nProceed bubble sort.\n\n");
 				bubble(p, n);
 			}
 			break;
 		case BUBBLE_FIX:
 			if (reverse) {
-				printf("\n버블 역정렬 수정판을 수행합니다\n\n");
+				printf("\nProceed reverse bubble sort fixed.\n\n");
 				bubble_fix_reverse(p, n);
 			} else {
-				printf("\n버블 정렬 수정판을 수행합니다\n\n");
+				printf("\nProceed bubble sort fixed.\n\n");
 				bubble_fix(p, n);
 			}
 			break;
 		case INSERTION:
 			if (reverse) {
-				printf("\n삽입 역정렬을 수행합니다\n\n");
+				printf("\nProceed reverse insertion sort.\n\n");
 				insertion_reverse(p, n);
 			} else {
-				printf("\n삽입 정렬을 수행합니다\n\n");
+				printf("\nProceed insertion sort.\n\n");
 				insertion(p, n);
 			}
 			break;
 	}
 
 	while (1) {
-		printf("\n기존 입력값으로 다른정렬을 수행하시겠습니까? (y/n): ");
+		printf("\nTry other sorting with existing inputs? (y/n): ");
 		scanf("%s", &yesno); getchar();
 
 		if (yesno[0] == 'y' || yesno[0] == 'Y') {
@@ -139,11 +139,11 @@ re_sort:
 			break;
 		}
 		else
-			printf("\n잘 못 입력하셨습니다!\n");
+			printf("\nWrong input!\n");
 	}
 
 	while (1) {
-		printf("\n배열을 새로 입력 받으시겠습니까? (y/n): ");
+		printf("\nMake new array? (y/n): ");
 		scanf("%s", &yesno); getchar();
 
 		if (yesno[0] == 'y' || yesno[0] == 'Y') {
@@ -152,11 +152,11 @@ re_sort:
 			break;
 		}
 		else if (yesno[0] == 'n' || yesno[0] == 'N') {
-			printf("\n프로그램을 종료합니다.\n");
+			printf("\nExiting program...\n");
 			break;
 		}
 		else
-			printf("\n잘 못 입력하셨습니다!\n");
+			printf("\nWrong input!\n");
 	}
 
 	printf("\n");
